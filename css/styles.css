@@ -1,0 +1,199 @@
+/* General */
+:root {
+    --primary-color-opacity: rgba(21, 21, 21, 0.85);
+    --primary-color: #212121;
+    --secondary-color: #efeded;
+    --accent-color: #ffe900;
+}
+
+body, html {
+    font-family: 'Ubuntu', sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header */
+.header-background {
+    background-color: var(--primary-color-opacity);
+    color: var(--secondary-color);
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    height: 75px;
+}
+
+.header-background--stop {
+    background-color: var(--primary-color);
+    transition: background-color 0.5s;
+    position: absolute;
+}
+
+.header-content {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    height: 100%;
+}
+
+.header-content img {
+    height: 75px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.logo-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title p {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.header-options {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: auto;
+    padding: 10px;
+}
+
+.header-options a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2em;
+    transition: color 0.5s;
+}
+
+.header-options a:hover {
+    color: var(--accent-color);
+}
+
+/* Main body*/
+.background-image {
+    background-image: url('../images/background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.scroll-circle {
+    position: fixed;
+    user-select: none;
+    bottom: 20px;
+    left: 50%;
+    padding: 20px;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    height: 30px;
+    width: 30px;
+}
+
+.scroll-circle p {
+    margin-top: 0;
+}
+
+.scroll-circle.hidden {
+    opacity: 0;
+}
+
+.content {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.content > * {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.content > *.visible {
+    opacity: 1;
+}
+
+.news-titles {
+    width: 30%;
+    padding-right: 20px;
+    position: sticky;
+    top: 0;
+}
+
+.news-titles.selected {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.news-content {
+    width: 70%;
+    height: calc(100vh - 95px);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.news-title {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.news-item {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+.news-item.visible {
+    opacity: 1;
+    max-height: 100vh;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    padding: 20px;
+    cursor: pointer;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 10px;
+    height: 75px;
+    text-align: center;
+}
