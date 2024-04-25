@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var header = document.querySelector('.header-background');
+    var header = document.querySelector('.header');
     var backgroundImage = document.getElementById('background-image');
     var headerHeight = header.offsetHeight;
     var backgroundImageHeight = backgroundImage.offsetHeight;
@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         var scrollPosition = window.scrollY;
         if (scrollPosition > stopPosition) {
-            header.classList.add('header-background--stop');
+            header.classList.add('header--stop');
             var topValue = backgroundImageHeight - headerHeight;
             header.style.top = topValue + 'px';
         } else {
-            header.classList.remove('header-background--stop');
+            header.classList.remove('header--stop');
             header.style.top = 0;
         }
     });

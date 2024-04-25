@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var scrollToTopButton = document.getElementById('scroll-to-top');
-    var header = document.querySelector('.header-background');
+    var header = document.querySelector('.header');
     var backgroundImage = document.getElementById('background-image');
     var headerHeight = header.offsetHeight;
     var backgroundImageHeight = backgroundImage.offsetHeight;

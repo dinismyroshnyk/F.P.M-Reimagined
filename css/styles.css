@@ -20,7 +20,7 @@ body::-webkit-scrollbar {
 }
 
 /* Header */
-.header-background {
+.header {
     background-color: var(--primary-color-opacity);
     color: var(--secondary-color);
     padding: 10px;
@@ -31,7 +31,7 @@ body::-webkit-scrollbar {
     height: 75px;
 }
 
-.header-background--stop {
+.header--stop {
     background-color: var(--primary-color);
     transition: background-color 0.5s;
     position: absolute;
@@ -129,15 +129,6 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 
-.content > * {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.content > *.visible {
-    opacity: 1;
-}
-
 .news-titles {
     width: 30%;
     padding-right: 20px;
@@ -145,34 +136,36 @@ body::-webkit-scrollbar {
     top: 0;
 }
 
-.news-titles.selected {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-
 .news-content {
     width: 70%;
     height: calc(100vh - 95px);
     -ms-overflow-style: none;
     scrollbar-width: none;
+    text-align: left;
 }
 
 .news-title {
     cursor: pointer;
     padding: 10px;
     border-bottom: 1px solid var(--primary-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.news-title.selected {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .news-item {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: opacity 0.5s ease, max-height 0.5s ease;
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
 }
 
 .news-item.visible {
     opacity: 1;
-    max-height: 100vh;
+    max-height: calc(100vh - 95px);
 }
 
 .scroll-to-top {
@@ -193,7 +186,27 @@ body::-webkit-scrollbar {
 .footer {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    padding: 10px;
     height: 75px;
+    padding: 10px;
     text-align: center;
+}
+
+.footer-content img {
+    height: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    width: auto;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+}
+
+.footer-content img:hover {
+    filter: grayscale(0%);
+    transition: filter 0.5s;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 0.8em;
 }
